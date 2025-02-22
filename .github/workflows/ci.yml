@@ -77,9 +77,9 @@ jobs:
          project_id: 'agile-extension-451701-b7' # update with your project ID
          workload_identity_provider: 'projects/892874789295/locations/global/workloadIdentityPools/github/providers/my-repo' # update with your Workload Identity Pool
 
-#      # configure/login with docker
-#      - name: gcloud Configure Docker
-#        run: gcloud auth configure-docker [YOUR REGION e.g. us-central1]-docker.pkg.dev
+      # configure/login with docker
+      - name: gcloud Configure Docker
+        run: gcloud auth configure-docker us-east4-docker.pkg.dev
 
 #      # setup docker buildx
 #      - name: Setup docker buildx
@@ -87,11 +87,11 @@ jobs:
 #        with:
 #          platforms: linux/amd64,linux/arm64
 
-#      # build and push the image
-#      - name: Build and Push
-#        uses: docker/build-push-action@v6
-#        with:
-#          context: ./
-#          file: ./Dockerfile
-#          push: true
-#          tags: [YOUR REGION e.g. us-central1]-docker.pkg.dev/cc-spring2025/dansc0de/fastapi-server:v2
+      # build and push the image
+      - name: Build and Push
+        uses: docker/build-push-action@v6
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: us-east4-docker.pkg.dev/cc-spring2025/dansc0de/fastapi-server:v2

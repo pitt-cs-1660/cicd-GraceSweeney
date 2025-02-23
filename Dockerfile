@@ -1,5 +1,5 @@
 # Builder code - stage 1?
-#more permissions added ughh
+#more permissions added ughh ok now i added the push on writwr thing
  
 #base image 
 FROM python:3.11-buster AS builder

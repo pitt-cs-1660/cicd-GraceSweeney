@@ -15,7 +15,6 @@ RUN pip install --upgrade pip && pip install poetry
 RUN poetry config virtualenvs.create false \
   && poetry install --no-root --no-interaction --no-ansi
 
-
 # App code - stage 2
 #base image 
 FROM python:3.11-buster AS app

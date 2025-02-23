@@ -1,4 +1,5 @@
 # Builder code - stage 1?
+#more permissions added ughh
  
 #base image 
 FROM python:3.11-buster AS builder

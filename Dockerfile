@@ -4,7 +4,7 @@
 FROM python:3.11-buster AS builder
 
 # set both to app 
-WORKDIR / app
+WORKDIR /app
 
 #copy before building 
 COPY pyproject.toml poetry.lock /app/
@@ -21,7 +21,7 @@ RUN poetry config virtualenvs.create false \
 FROM python:3.11-buster AS app
 
 # set both to app 
-WORKDIR / app
+WORKDIR /app
 
 COPY --from=builder /app /app
 

@@ -7,15 +7,14 @@ FROM python:3.11-buster AS builder
 WORKDIR /app
 
 #copy before building 
-COPY pyproject.toml poetry.lock /app/
+COPY . .
 
 # install poerrtry and upgrade pip in builder stage
 RUN pip install --upgrade pip && pip install poetry
 
 RUN poetry config virtualenvs.create false \
   && poetry install --no-root --no-interaction --no-ansi
-  
-COPY . /app
+
 
 # App code - stage 2
 #base image 
@@ -28,6 +27,6 @@ COPY --from=builder /app /app
 
 EXPOSE 8000
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENV PATH=$PATH:/app/.venv/bin
 
 CMD ["uvicorn", "cc_compose.server:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]

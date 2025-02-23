@@ -1,7 +1,7 @@
 # Builder code - stage 1?
 
 #base image 
-From python:3.11-buster AS builder
+FROM python:3.11-buster AS builder
 
 # set both to app 
 WORKDIR / app
@@ -18,7 +18,7 @@ RUN poetry config virtualenvs.create false \
 
 # App code - stage 2
 #base image 
-From python:3.11-buster AS app
+FROM python:3.11-buster AS app
 
 # set both to app 
 WORKDIR / app

@@ -75,7 +75,6 @@ jobs:
         name: Authenticate to GCP
         with:
          project_id: 'agile-extension-451701-b7' # update with your project ID
-         service_account: 'github-serviceaccount@agile-extension-451701-b7.iam.gserviceaccount.com' 
          workload_identity_provider: 'projects/892874789295/locations/global/workloadIdentityPools/github/providers/my-repo' # update with your Workload Identity Pool
 
       # configure/login with docker

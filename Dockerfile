@@ -24,7 +24,7 @@ WORKDIR / app
 
 COPY --from=builder /app /app
 
-Expose port 8000
+Expose 8000
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 

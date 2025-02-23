@@ -15,6 +15,7 @@ RUN pip install --upgrade pip && pip install poetry
 RUN poetry config virtualenvs.create false \
   && poetry install --no-root --no-interaction --no-ansi
   
+COPY . /app
 
 # App code - stage 2
 #base image 
@@ -24,8 +25,6 @@ FROM python:3.11-buster AS app
 WORKDIR /app
 
 COPY --from=builder /app /app
-
-COPY entrypoint.sh /app/
 
 EXPOSE 8000
 

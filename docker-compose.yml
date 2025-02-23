@@ -18,7 +18,7 @@ services:
     
     ### expose ports here
     ports:
-      - 8000:8000
+      - "8000:8000"
       
     volumes:
       - ./cc_compose:/app/cc_compose:Z

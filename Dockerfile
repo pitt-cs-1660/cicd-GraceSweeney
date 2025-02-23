@@ -6,16 +6,15 @@ From python:3.11-buster AS builder
 # set both to app 
 WORKDIR / app
 
-# install poerrtry and upgrade pip in builder stage
-RUN pip install --upgrade pip && pip install poetry
-
 #copy before building 
 COPY pyproject.toml poetry.lock /app/
+
+# install poerrtry and upgrade pip in builder stage
+RUN pip install --upgrade pip && pip install poetry
 
 RUN poetry config virtualenvs.create false \
   && poetry install --no-root --no-interaction --no-ansi
   
-COPY . .
 
 # App code - stage 2
 #base image 
